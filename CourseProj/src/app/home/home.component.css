@@ -1,0 +1,13 @@
+.welcomeBanner{
+    justify-content: center;
+    text-align: center;
+
+    font-size: 6em;
+}
+
+.introP{
+    justify-content: center;
+    text-align: center;
+    margin-left: 200px;
+    margin-right: 200px;
+}

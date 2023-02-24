@@ -29,4 +29,5 @@ interface ShoeInventory{
   model:string;
   size:number;
   summary: string;
+  price: number;
 }
