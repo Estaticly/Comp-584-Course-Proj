@@ -28,6 +28,6 @@ interface ShoeInventory{
   brand:string;
   model:string;
   size:number;
-  summary: string;
+  //summary: string;
   price: number;
 }
