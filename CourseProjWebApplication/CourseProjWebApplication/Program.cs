@@ -26,8 +26,8 @@ builder.Services.AddSwaggerGen(c =>
             Name = "Abraham Mendoza",
             Url = new Uri("https://canvas.csun.edu/courses/128137%22")
         },
-        Description = "APIs for World Cities",
-        Title = "World Cities APIs",
+        Description = "APIs for Shoe Explorer",
+        Title = "Shoe Explorer APIs",
         Version = "V1"
     });
     OpenApiSecurityScheme jwtSecurityScheme = new()
@@ -56,13 +56,13 @@ builder.Services.AddSwaggerGen(c =>
 
 
 
-
+builder.Services.AddIdentity<ShoeExplorerUser, IdentityRole>()
+    .AddEntityFrameworkStores<ShoeExplorerContext>();
 
 builder.Services.AddDbContext<ShoeExplorerContext>(options =>
 options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
-builder.Services.AddIdentity<ShoeExplorerUser, IdentityRole>()
-    .AddEntityFrameworkStores<ShoeExplorerContext>();
+
 
 builder.Services.AddAuthentication(options =>
 {
@@ -81,7 +81,7 @@ builder.Services.AddAuthentication(options =>
         ValidIssuer = builder.Configuration["JwtSettings:Issuer"],
         ValidAudience = builder.Configuration["JwtSettings:Audience"],
         IssuerSigningKey = new SymmetricSecurityKey(System.Text.Encoding.UTF8.GetBytes(
-            builder.Configuration["JwtSettings:SecurityKey"]))?? throw new InvalidOperationException()
+            builder.Configuration["JwtSettings:SecurityKey"])) ?? throw new InvalidOperationException()
     };
 
 });

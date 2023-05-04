@@ -20,5 +20,5 @@ public partial class Brand
     public int ShoeCount { get; set; }
 
     [InverseProperty("BrandNavigation")]
-    public virtual ICollection<Shoe> Shoes { get; set; } = new List<Shoe>();
+    public virtual ICollection<Shoe> Shoes { get; } = new List<Shoe>();
 }

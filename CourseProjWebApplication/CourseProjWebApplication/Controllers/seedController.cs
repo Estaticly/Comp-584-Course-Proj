@@ -1,25 +1,21 @@
-﻿
+﻿using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Identity;
-using Microsoft.AspNetCore.Http;
+using Microsoft.CodeAnalysis.CSharp.Syntax;
 using Microsoft.EntityFrameworkCore;
-using System.Globalization;
-using System;
 using ShoeExplorerModel;
-
 namespace CourseProjWebApplication.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class seedController: ControllerBase
+    public class SeedController : ControllerBase
     {
         private readonly UserManager<ShoeExplorerUser> _userManager;
         private readonly RoleManager<IdentityRole> _roleManager;
         private readonly IConfiguration _configuration;
         private readonly ShoeExplorerContext _context;
-        //private readonly string _pathName;
 
-        public seedController(UserManager<ShoeExplorerUser> userManager, RoleManager<IdentityRole> roleManager, IConfiguration configuration, ShoeExplorerContext context)
+        public SeedController(UserManager<ShoeExplorerUser> userManager, RoleManager<IdentityRole> roleManager,
+            IConfiguration configuration, ShoeExplorerContext context)
         {
             _userManager = userManager;
             _roleManager = roleManager;
@@ -91,5 +87,7 @@ namespace CourseProjWebApplication.Controllers
             });
 
         }
+
+        
     }
 }
