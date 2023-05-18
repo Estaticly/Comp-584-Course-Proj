@@ -1,0 +1,19 @@
+<h1>{{brand}}</h1>
+<table class="table-striped" aria-labelledby="tableLabel" [hidden]="!shoes">
+    <thead>
+        <tr>
+            <th>&nbsp;&nbsp;Model &nbsp;&nbsp;&nbsp;&nbsp;</th>
+            <th>Size&nbsp;&nbsp;&nbsp;&nbsp;</th>
+            <th>Price</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let shoe of shoes">
+            <td class="center">{{shoe.model}}&nbsp;</td>
+            <td class="center">{{shoe.size}}</td>
+            <td class="center">${{shoe.price}}</td>
+        </tr>
+    </tbody>
+</table>
+<br/>
+<button mat-button color="primary" [routerLink]="['/shoe-feed']">Back</button>

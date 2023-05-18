@@ -1,2 +1,34 @@
-<p>shoe-inventroy works!</p>
+<H1>Shoe Inventory</H1>
 <p>Add shoes to the inventory to be displayed in the feed</p>
+
+<form [formGroup]="form" (ngSubmit)="onSubmit()" >
+    <!--Choose from available brands-->
+    <mat-form-field>
+        <mat-label>Brand</mat-label>
+        <mat-select matInput  formControlName="brand" placeholder="Choose A Brand" required>
+            <mat-option *ngFor="let brand of brands" [value]="brand.brandName">{{brand.brandName}} </mat-option>
+        </mat-select>
+    </mat-form-field>
+    <!--Input the model of shoe-->
+    <mat-form-field>
+        <mat-label>Model</mat-label>
+        <input matInput formControlName="model" placeholder="Enter Shoe Model" required>
+    </mat-form-field>
+    <!--Input the model of shoe-->
+    <mat-form-field>
+        <mat-label>Size</mat-label>
+        <input matInput type="number"  formControlName="size" placeholder="Enter Shoe Size" required>
+    </mat-form-field>
+    <!--Input the model of shoe-->
+    <mat-form-field>
+        <mat-label>Price</mat-label>
+        <input matInput type="number"  formControlName="price" placeholder="Enter Price of Show" required>
+    </mat-form-field>
+    <div>
+        <button mat-flat-button color="primary" type="submit">Enter
+        </button>
+        <button mat-flat-button color="secondary" [routerLink]="['/']">
+          Cancel
+        </button>
+      </div>
+</form>

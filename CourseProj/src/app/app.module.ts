@@ -12,7 +12,19 @@ import { HomeComponent } from './home/home.component';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import {MatIconModule} from '@angular/material/icon';
 import {MatButtonModule} from '@angular/material/button';
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
+import { AuthInterceptor } from './auth/auth.interceptor';
+import { LoginComponent } from './auth/login.component';
+
+
+import { MatFormFieldModule } from "@angular/material/form-field";
+import { MatInputModule } from "@angular/material/input";
+
+import { ReactiveFormsModule } from '@angular/forms';
+import { ShoeByBrandComponent } from './shoe-feed/shoe-by-brand.component';
+
+import { MatSelectModule } from "@angular/material/select";
+
 
 @NgModule({
   declarations: [
@@ -20,7 +32,9 @@ import { HttpClientModule } from '@angular/common/http';
     NavBarComponent,
     ShoeInventroyComponent,
     ShoeFeedComponent,
-    HomeComponent
+    HomeComponent,
+    LoginComponent,
+    ShoeByBrandComponent,
   ],
   imports: [
     BrowserModule,
@@ -29,9 +43,17 @@ import { HttpClientModule } from '@angular/common/http';
     MatToolbarModule,
     MatIconModule,
     MatButtonModule,
-    HttpClientModule
+    HttpClientModule,
+    MatFormFieldModule,
+    ReactiveFormsModule,
+    MatInputModule,
+    MatSelectModule,
   ],
-  providers: [],
+  providers: [{
+    provide:HTTP_INTERCEPTORS,
+    useClass: AuthInterceptor,
+    multi: true
+  }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

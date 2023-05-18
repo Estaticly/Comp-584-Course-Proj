@@ -65,7 +65,7 @@ namespace CourseProjWebApplication.Controllers
         }
 
         [HttpGet]
-        //[Authorize]
+        [Authorize]
         public async Task<ActionResult<IEnumerable<Brand>>> GetBrands()
         {
             if(_context.Brands == null)

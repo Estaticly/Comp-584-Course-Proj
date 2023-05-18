@@ -20,7 +20,7 @@ namespace CourseProjWebApplication.Controllers
 
         [HttpPost]
         //[Authorize]
-        public async Task<ActionResult<NewShoe>> PostShoe(NewShoe newShoe)
+        public async Task<ActionResult<NewShoe>> PostShoe(NewShoe newShoe)//adds a new shoe
         {
             Dictionary<string, Brand> brands= await _context.Brands
                 .AsNoTracking().ToDictionaryAsync(b => b.BrandName);
@@ -53,9 +53,41 @@ namespace CourseProjWebApplication.Controllers
             return newShoe;
         }
 
+        //Gets all shoes by the brand
+        [HttpGet("ShoeByBrand/{id}")]
+        public async Task<ActionResult<IEnumerable<NewShoe>>> GetShoeByBrand(int id)
+        {   Brand? brand= await _context.Brands.FindAsync(id);
+            if (brand is null)
+            {
+                return NotFound();
+            }
+            List<Shoe> shoes = await _context.Shoes.ToListAsync();
+            if(shoes.Count == 0)
+            {
+                Console.WriteLine("No shoes in DB");
+            }
+            List<NewShoe> shoesByBrand = new List<NewShoe>();
+            foreach (Shoe shoe in shoes)
+            {
+                if (shoe.BrandId == id)
+                {
+                    NewShoe s = new()
+                    {
+                        //Id = shoe.Id,
+                        Brand = shoe.Brand,
+                        Model = shoe.Model,
+                        Size = shoe.Size,
+                        Price = shoe.Price,
+                    };
+                    shoesByBrand.Add(s);
+                }
+            }
+            return shoesByBrand;
+        }
+
         [HttpGet]
         //[Authorize]
-        public async Task<ActionResult<IEnumerable<Shoe>>> GetShoes()
+        public async Task<ActionResult<IEnumerable<Shoe>>> GetShoes()//Gets all shoes
         {
             if (_context.Brands == null)
             {

@@ -7,5 +7,9 @@
       <a mat-flat-button color="primary" [routerLink]="['/shoe-feed']">Shoe Feed</a>
       
       <a mat-flat-button color="primary" [routerLink]="['/shoe-inventory']">Shoe Inventory</a>
+
+      <span class="separator"></span>
+      <a mat-flat-button *ngIf="!isLoggedIn" color="primary" [routerLink]="['/login']">Login</a>
+      <a mat-flat-button *ngIf="isLoggedIn" color="primary" (click)="onLogout()">Logout</a>
     </mat-toolbar>
 </header>

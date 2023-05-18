@@ -1,2 +1,19 @@
-<p>shoe-feed works!</p>
-<p> Look at the current shoes listed!</p>
+<H1>Shoe Feed</H1>
+<p> These are the Shoes in the Database</p>
+<p>Choose a Shoe brand to see what shoes are here!</p>
+<table class="table table-striped" aria-labelledby="tableLabel" [hidden]="!brands">
+    <thead>
+        <tr>
+            <th> &nbsp;&nbsp;&nbsp;ID &nbsp;&nbsp;&nbsp;</th>
+            <th> Brand </th>
+            <th> Quantity </th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let brand of brands">
+            <td class="center">{{brand.id}}</td>
+            <td class="center">{{brand.brandName}}</td>
+            <td class="center"><a [routerLink]="['/shoe-by-brand',brand.id]">{{brand.shoeCount}}</a></td>
+        </tr>
+    </tbody>
+</table>
