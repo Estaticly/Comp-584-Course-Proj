@@ -175,9 +175,12 @@ namespace ShoeExplorerModel.Migrations
                         .HasColumnType("int")
                         .HasColumnName("shoeCount");
 
+                    b.Property<int>("Shoeworth")
+                        .HasColumnType("int");
+
                     b.HasKey("Id");
 
-                    b.ToTable("Brands");
+                    b.ToTable("Brands", (string)null);
                 });
 
             modelBuilder.Entity("ShoeExplorerModel.Shoe", b =>
@@ -217,7 +220,7 @@ namespace ShoeExplorerModel.Migrations
 
                     b.HasIndex("BrandId");
 
-                    b.ToTable("Shoes");
+                    b.ToTable("Shoes", (string)null);
                 });
 
             modelBuilder.Entity("ShoeExplorerModel.ShoeExplorerUser", b =>

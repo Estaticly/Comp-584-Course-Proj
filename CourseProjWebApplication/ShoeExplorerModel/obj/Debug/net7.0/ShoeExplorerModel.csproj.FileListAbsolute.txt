@@ -12,4 +12,3 @@ C:\Users\Abraham\Documents\GitHub\Comp-584-Couse-Proj\CourseProjWebApplication\S
 C:\Users\Abraham\Documents\GitHub\Comp-584-Couse-Proj\CourseProjWebApplication\ShoeExplorerModel\obj\Debug\net7.0\ref\ShoeExplorerModel.dll
 C:\Users\Abraham\Documents\GitHub\Comp-584-Couse-Proj\CourseProjWebApplication\ShoeExplorerModel\bin\Debug\net7.0\ShoeExplorerModel.runtimeconfig.json
 C:\Users\Abraham\Documents\GitHub\Comp-584-Couse-Proj\CourseProjWebApplication\ShoeExplorerModel\obj\Debug\net7.0\ShoeExplorerModel.genruntimeconfig.cache
-C:\Users\Abraham\Documents\GitHub\Comp-584-Couse-Proj\CourseProjWebApplication\ShoeExplorerModel\bin\Debug\net7.0\appsettings.json
